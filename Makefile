@@ -310,7 +310,11 @@ check: first
 compiler_rcc_make_all: qrc_Recursos.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_Recursos.cpp
-qrc_Recursos.cpp: ../../ManejadorDeArchivoOAR/Recursos.qrc
+qrc_Recursos.cpp: ../../ManejadorDeArchivoOAR/Recursos.qrc \
+		../../ManejadorDeArchivoOAR/crear.png \
+		../../ManejadorDeArchivoOAR/guardar.png \
+		../../ManejadorDeArchivoOAR/salir.png \
+		../../ManejadorDeArchivoOAR/cerrar.png
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name Recursos ../../ManejadorDeArchivoOAR/Recursos.qrc -o qrc_Recursos.cpp
 
 compiler_moc_header_make_all: moc_mainwindow.cpp
@@ -910,7 +914,11 @@ mainwindow.o: ../../ManejadorDeArchivoOAR/mainwindow.cpp ../../ManejadorDeArchiv
 		/usr/include/qt5/QtGui/qtguiversion.h \
 		/usr/include/qt5/QtWidgets/QMessageBox \
 		/usr/include/qt5/QtWidgets/qmessagebox.h \
-		/usr/include/qt5/QtWidgets/qdialog.h
+		/usr/include/qt5/QtWidgets/qdialog.h \
+		/usr/include/qt5/QtWidgets/QInputDialog \
+		/usr/include/qt5/QtWidgets/qinputdialog.h \
+		/usr/include/qt5/QtWidgets/qlineedit.h \
+		/usr/include/qt5/QtCore/QFile
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../ManejadorDeArchivoOAR/mainwindow.cpp
 
 qrc_Recursos.o: qrc_Recursos.cpp 

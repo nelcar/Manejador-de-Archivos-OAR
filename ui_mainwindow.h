@@ -13,11 +13,18 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -45,6 +52,18 @@ public:
     QAction *actionExportar_XML_con_Schema;
     QAction *actionExportar_JSON;
     QWidget *centralWidget;
+    QFrame *panelCampos;
+    QTableWidget *tablaCampos;
+    QPushButton *abrirArchivo;
+    QLabel *label;
+    QLabel *label_2;
+    QLineEdit *nombreCampo;
+    QComboBox *comboBoxTipoCampo;
+    QLabel *label_3;
+    QSpinBox *tamanoCampo;
+    QPushButton *crearCampo;
+    QPushButton *pushButton;
+    QLabel *label_4;
     QMenuBar *menuBar;
     QMenu *menuEstandarizacion;
     QMenu *menuIndices;
@@ -58,7 +77,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(554, 381);
+        MainWindow->resize(779, 526);
         actionNuevo_Archivo = new QAction(MainWindow);
         actionNuevo_Archivo->setObjectName(QStringLiteral("actionNuevo_Archivo"));
         QIcon icon;
@@ -66,12 +85,24 @@ public:
         actionNuevo_Archivo->setIcon(icon);
         actionSalvar_Archivo = new QAction(MainWindow);
         actionSalvar_Archivo->setObjectName(QStringLiteral("actionSalvar_Archivo"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/Imagenes/guardar.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionSalvar_Archivo->setIcon(icon1);
         actionCerrar_Archivo = new QAction(MainWindow);
         actionCerrar_Archivo->setObjectName(QStringLiteral("actionCerrar_Archivo"));
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/Imagenes/cerrar.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionCerrar_Archivo->setIcon(icon2);
         actionSalir = new QAction(MainWindow);
         actionSalir->setObjectName(QStringLiteral("actionSalir"));
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/Imagenes/salir.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionSalir->setIcon(icon3);
         actionCrear_Campos = new QAction(MainWindow);
         actionCrear_Campos->setObjectName(QStringLiteral("actionCrear_Campos"));
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/Imagenes/crear.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionCrear_Campos->setIcon(icon4);
         actionListar_Campos = new QAction(MainWindow);
         actionListar_Campos->setObjectName(QStringLiteral("actionListar_Campos"));
         actionModificar_Campos = new QAction(MainWindow);
@@ -100,10 +131,48 @@ public:
         actionExportar_JSON->setObjectName(QStringLiteral("actionExportar_JSON"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        panelCampos = new QFrame(centralWidget);
+        panelCampos->setObjectName(QStringLiteral("panelCampos"));
+        panelCampos->setGeometry(QRect(30, 20, 741, 351));
+        panelCampos->setFrameShape(QFrame::StyledPanel);
+        panelCampos->setFrameShadow(QFrame::Raised);
+        tablaCampos = new QTableWidget(panelCampos);
+        tablaCampos->setObjectName(QStringLiteral("tablaCampos"));
+        tablaCampos->setGeometry(QRect(20, 40, 661, 231));
+        abrirArchivo = new QPushButton(panelCampos);
+        abrirArchivo->setObjectName(QStringLiteral("abrirArchivo"));
+        abrirArchivo->setGeometry(QRect(20, 10, 111, 27));
+        label = new QLabel(panelCampos);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(20, 280, 141, 17));
+        label_2 = new QLabel(panelCampos);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(20, 310, 111, 17));
+        nombreCampo = new QLineEdit(panelCampos);
+        nombreCampo->setObjectName(QStringLiteral("nombreCampo"));
+        nombreCampo->setGeometry(QRect(160, 280, 121, 27));
+        comboBoxTipoCampo = new QComboBox(panelCampos);
+        comboBoxTipoCampo->setObjectName(QStringLiteral("comboBoxTipoCampo"));
+        comboBoxTipoCampo->setGeometry(QRect(160, 310, 121, 27));
+        label_3 = new QLabel(panelCampos);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(290, 280, 141, 17));
+        tamanoCampo = new QSpinBox(panelCampos);
+        tamanoCampo->setObjectName(QStringLiteral("tamanoCampo"));
+        tamanoCampo->setGeometry(QRect(440, 280, 91, 27));
+        crearCampo = new QPushButton(panelCampos);
+        crearCampo->setObjectName(QStringLiteral("crearCampo"));
+        crearCampo->setGeometry(QRect(290, 310, 241, 27));
+        pushButton = new QPushButton(panelCampos);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(700, 100, 31, 27));
+        label_4 = new QLabel(panelCampos);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setGeometry(QRect(690, 80, 41, 17));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 554, 25));
+        menuBar->setGeometry(QRect(0, 0, 779, 25));
         menuEstandarizacion = new QMenu(menuBar);
         menuEstandarizacion->setObjectName(QStringLiteral("menuEstandarizacion"));
         menuIndices = new QMenu(menuBar);
@@ -146,6 +215,10 @@ public:
         menuArchivo->addAction(actionCerrar_Archivo);
         menuArchivo->addAction(actionSalir);
         mainToolBar->addAction(actionNuevo_Archivo);
+        mainToolBar->addAction(actionSalvar_Archivo);
+        mainToolBar->addAction(actionCerrar_Archivo);
+        mainToolBar->addAction(actionSalir);
+        mainToolBar->addAction(actionCrear_Campos);
 
         retranslateUi(MainWindow);
 
@@ -173,6 +246,19 @@ public:
         actionExportar_Excel->setText(QApplication::translate("MainWindow", "Exportar Excel", 0));
         actionExportar_XML_con_Schema->setText(QApplication::translate("MainWindow", "Exportar XML con Schema", 0));
         actionExportar_JSON->setText(QApplication::translate("MainWindow", "Exportar JSON", 0));
+        abrirArchivo->setText(QApplication::translate("MainWindow", "Abrir archivo", 0));
+        label->setText(QApplication::translate("MainWindow", "Nombre del Campo:", 0));
+        label_2->setText(QApplication::translate("MainWindow", "Tipo de Campo:", 0));
+        comboBoxTipoCampo->clear();
+        comboBoxTipoCampo->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "CHAR", 0)
+         << QApplication::translate("MainWindow", "INTF", 0)
+         << QApplication::translate("MainWindow", "DEC", 0)
+        );
+        label_3->setText(QApplication::translate("MainWindow", "Tama\303\261o del Campo:", 0));
+        crearCampo->setText(QApplication::translate("MainWindow", "Crear Campo", 0));
+        pushButton->setText(QApplication::translate("MainWindow", "+", 0));
+        label_4->setText(QApplication::translate("MainWindow", "Rows:", 0));
         menuEstandarizacion->setTitle(QApplication::translate("MainWindow", "Estandarizacion", 0));
         menuIndices->setTitle(QApplication::translate("MainWindow", "Indices", 0));
         menuRegistros->setTitle(QApplication::translate("MainWindow", "Registros", 0));
